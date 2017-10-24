@@ -1,0 +1,161 @@
+/*
+  This file must be valid JSON. But comments are allowed
+
+  Please edit settings.json, not settings.json.template
+*/
+{
+  // name your instance!
+  "title": "SPEROCOIN Explorer",
+
+  "address": "sperocoin.ddns.net:3001",
+
+  // coin name
+  "coin": "Sperocoin",
+
+  // coin symbol
+  "symbol": "SPERO",
+
+  // logo
+  "logo": "/images/logo.png",
+
+  // favicon
+  "favicon": "public/favicon.ico",
+
+  // Uses bootswatch themes (http://bootswatch.com/)
+  // Valid options:
+  //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
+  //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
+  // theme (see /public/themes for available themes)
+  "theme": "United",
+
+  // port to listen for requests on.
+  "port" : 3001,
+
+  // database settings (MongoDB)
+  "dbsettings": {
+    "user": "xxx",
+    "password": "xxx",
+    "database": "xxx",
+    "address": "localhost",
+    "port": 27017
+  },
+
+  //update script settings
+  "update_timeout": 10,
+  "check_timeout": 250,
+
+  // wallet settings
+  "wallet": {
+    "host": "localhost",
+    "port": 55681,
+    "user": "xxx",
+    "pass": "xxx"
+  },
+
+  // confirmations
+  "confirmations": 10,
+
+  // language settings
+  "locale": "locale/en.json",
+
+  // menu settings
+  "display": {
+    "api": true,
+    "markets": false,
+    "richlist": true,
+    "twitter": false,
+    "facebook": false,
+    "googleplus": false,
+    "search": true,
+    "movement": true,
+    "network": true
+  },
+
+  // index page (valid options for difficulty are POW, POS or Hybrid)
+  "index": {
+    "show_hashrate": true,
+    "difficulty": "POS",
+    "last_txs": 1000
+  },
+
+  // ensure links on API page are valid
+  "api": {
+    "blockindex": 46090,
+    "blockhash": "ff1e490afbda3ab7c3431b67c9a6b6e335a43dbbb32cd5c2bee345234a8cfdef",
+    "txhash": "791c76366603028c5b1397f4b5e3207479bcff1896ec7ec48747bb1b10cb9e1f",
+    "address": "SZVK5rTeciLQof8Jb3hSmp4DSWNCcaDEv8"
+  },
+
+  // market settings
+  //supported markets: bittrex, poloniex, yobit, empoex, bleutrade, cryptopia, ccex
+  //default market is loaded by default and determines last price in header
+  "markets": {
+    "coin": "JBS",
+    "exchange": "BTC",
+    "enabled": ["bittrex"],
+    "cryptopia_id": "1658",
+    "ccex_key" : "Get-Your-Own-Key",
+    "default": "bittrex"
+  },
+
+  // richlist/top100 settings
+  "richlist": {
+    "distribution": true,
+    "received": true,
+    "balance": true
+  },
+  // movement page settings
+  // min amount: show transactions greater than this value
+  // low flag: greater than this value flagged yellow
+  // high flag: greater than this value flagged red
+  "movement": {
+    "min_amount": 50,
+    "low_flag": 500,
+    "high_flag": 10000
+  },
+
+  // twitter, facebook, googleplus
+  "twitter": "iquidus",
+  "facebook": "yourfacebookpage",
+  "googleplus": "yourgooglepluspage",
+
+  //genesis
+  "genesis_tx": "6f5dd836da72471e5ea8f3c836249e447059f9f7c7c26a2f91fecd0c509dd677 ",
+  "genesis_block": "000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b",
+
+  //heavy (enable/disable additional heavy features)
+  "heavy": false,
+
+  //amount of txs to index per address (stores latest n txs)
+  "txcount": 1000,
+
+  //show total sent & received on address page (set false if PoS)
+  "show_sent_received": true,
+
+  // how to calculate current coin supply
+  // COINBASE : total sent from coinbase (PoW)
+  // GETINFO : retreive from getinfo api call (PoS)
+  // HEAVY: retreive from heavys getsupply api call
+  // BALANCES : total of all address balances
+  // TXOUTSET : retreive from gettxoutsetinfo api call
+  "supply": "GETINFO",
+
+  // how to acquire network hashrate
+  // getnetworkhashps: uses getnetworkhashps api call, returns in GH/s
+  // netmhashps: uses getmininginfo.netmhashpsm returns in MH/s
+  "nethash": "netmhashps",
+
+  // nethash unitd: sets nethash API return units
+  // valid options: "P" (PH/s), "T" (TH/s), "G" (GH/s), "M" (MH/s), "K" (KH/s)
+  "nethash_units": "M",
+
+  // Address labels
+  // example : "JhbrvAmM7kNpwA6wD5KoAsbtikLWWMNPcM": {"label": "This is a burn address", "type":"danger", "url":"http://example.com"}
+  // label (required) = test to display
+  // type (optional) = class of label, valid types: default, primary, warning, danger, success
+  // url (optional) = url to link to for more information
+  "labels": {
+  //  "ScGar9ANzZbfyVEJaBDKoEdMYg1HELfrbt": {"label": "Developers address", "type":"primary", "url":"http://example.com"},
+  //  "SYjL5Hix9PzttDmasKYefzptypifuvkfDL": {"label": "Sperocoin Projects Donate"}
+  }
+}
