@@ -104,6 +104,7 @@
     "received": true,
     "balance": true
   },
+
   // movement page settings
   // min amount: show transactions greater than this value
   // low flag: greater than this value flagged yellow
@@ -113,6 +114,14 @@
     "low_flag": 1000,
     "high_flag": 5000
   },
+
+//Compatibilidade com QT5 - Francis Santana - Versão 2.6.4.5
+// Peers page settings
+  // ipstack_api_key: ipstack.com Geo IP. This is the replacement of http://freegeoip.net You need an API Key for the Requests
+  "peers": {
+    "ipstack_api_key": "Your API Key"
+  },
+//Adição do Localizador por IP da IPSTAC
 
   // twitter, facebook, googleplus
   "twitter": "iquidus",
