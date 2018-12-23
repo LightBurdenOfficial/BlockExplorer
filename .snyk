@@ -8,16 +8,16 @@ patch:
         patched: '2018-12-23T22:12:59.268Z'
   'npm:mime:20170907':
     - bitcoin-node-api > express > send > mime:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
     - bitcoin-node-api > express > connect > send > mime:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
     - express > accepts > mime:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
   'npm:qs:20140806-1':
     - bitcoin-node-api > express > connect > qs:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
   'npm:uglify-js:20151024':
     - jade > constantinople > uglify-js:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
     - jade > transformers > uglify-js:
-        patched: '2018-12-23T22:14:14.906Z'
+        patched: '2018-12-23T22:15:46.909Z'
