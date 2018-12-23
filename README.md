@@ -1,5 +1,7 @@
 # BlockExplorer used by SperoCoin
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ad1c016b27a4719a6a5f397cfdd0520)](https://app.codacy.com/app/DigitalCoin1/BlockExplorer?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/BlockExplorer&utm_campaign=Badge_Grade_Dashboard)
+
 Iquidus Explorer - 1.6.1
 ================
 
