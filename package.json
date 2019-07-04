@@ -24,7 +24,7 @@
     "mongoose": "4.13.17",
     "markdown-js": "0.0.4",
     "qr-image": "~2.0.0",
-    "snyk": "^1.118.2"
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "jasmine": "~2.1.0"
