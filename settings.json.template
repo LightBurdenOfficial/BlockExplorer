@@ -5,7 +5,7 @@
 */
 {
   // name your instance!
-  "title": "SPERO EXPLORER",
+  "title": "SPEROCOIN Explorer",
 
   "address": "127.0.0.1:3001",
 
@@ -26,17 +26,17 @@
   //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
   //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
   // theme (see /public/themes for available themes)
-  "theme": "Cyborg",
+  "theme": "United",
 
   // port to listen for requests on.
   "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "iquidus",
-    "password": "3xp!0reR",
-    "database": "explorerdb",
-    "address": "localhost",
+    "user": "xxxxx",
+    "password": "xxxxx",
+    "database": "xxxxx",
+    "address": "xxxxx",
     "port": 27017
   },
 
@@ -53,7 +53,7 @@
   },
 
   // confirmations
-  "confirmations": 5,
+  "confirmations": 4,
 
   // language settings
   "locale": "locale/en.json",
@@ -105,7 +105,6 @@
     "received": true,
     "balance": true
   },
-
   // movement page settings
   // min amount: show transactions greater than this value
   // low flag: greater than this value flagged yellow
@@ -116,6 +115,7 @@
     "high_flag": 10000
   },
 
+//Adição do Localizador por IP da IPSTAC
 // Peers page settings
   // ipstack_api_key: ipstack.com Geo IP. This is the replacement of http://freegeoip.net You need an API Key for the Requests
   "peers": {
@@ -127,7 +127,7 @@
   "twitter": "Spero_Official",
   "facebook": "sperocoinofficial",
   "googleplus": "yourgooglepluspage",
-  "youtube": "SperoCoin",
+  "youtube": "youryoutubechannel",
 
   //genesis
   "genesis_tx": "6f5dd836da72471e5ea8f3c836249e447059f9f7c7c26a2f91fecd0c509dd677",
@@ -137,7 +137,7 @@
   "heavy": false,
 
   //amount of txs to index per address (stores latest n txs)
-  "txcount": 1000,
+  "txcount": 50,
 
   //show total sent & received on address page (set false if PoS)
   "show_sent_received": false,
