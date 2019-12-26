@@ -35,7 +35,7 @@ function route_get_block(res, blockhash) {
 }
 /* GET functions */
 
-function route_get_tx(res, txid) {
+  function route_get_tx(res, txid) {
   if (txid == settings.genesis_tx) {
     route_get_block(res, settings.genesis_block);
   } else {
@@ -87,7 +87,6 @@ function route_get_tx(res, txid) {
     });
   }
 }
-
 function route_get_index(res, error) {
   res.render('index', { active: 'home', error: error, warning: null});
 }
