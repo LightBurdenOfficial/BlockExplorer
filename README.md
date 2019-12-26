@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ad1c016b27a4719a6a5f397cfdd0520)](https://app.codacy.com/app/DigitalCoin1/BlockExplorer?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/BlockExplorer&utm_campaign=Badge_Grade_Dashboard)
 
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.6.2
 ================
 
 An open source block explorer written in node.js.
@@ -15,6 +15,7 @@ An open source block explorer written in node.js.
 *  [Vanillacoin](https://blockchain.vanillacoin.net/)
 *  [Neoscoin](http://explorer.infernopool.com/)  
 *  [C2Chain](http://c2chain.info/)
+*  [SperoCoin](https://explorer.sperocoin.org/)
 
 *note: If you would like your instance mentioned here contact me*
 
