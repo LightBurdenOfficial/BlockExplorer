@@ -51,8 +51,8 @@
   "wallet": {
     "host": "localhost",
     "port": 55681,
-    "user": "SPERO_RPC_USER",
-    "pass": "SPERO_RPC_PASS"
+    "username": "SPERO_RPC_USER",
+    "password": "SPERO_RPC_PASS"
   },
 
   // confirmations
