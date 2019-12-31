@@ -5,34 +5,29 @@ block market_view
     .col-md-12  
       .panel.panel-default
         .panel-heading
-          strong #{settings.locale.altmarkets} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
+          strong #{settings.locale.empoex} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
           a(href='#')
-            span.fa.fa-line-chart.pull-right.view-chart-disabled.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title='#{settings.locale.mkt_no_chart}') 
+            span.fa.fa-line-chart.pull-right.view-chart-disabled.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title=settings.locale.mkt_no_chart) 
         table.table.table-bordered.summary-table 
           thead
             tr
               th #{settings.locale.mkt_high}
               th #{settings.locale.mkt_low}
-              th #{settings.locale.mkt_volume} (#{marketdata.coin})
-              th #{settings.locale.mkt_volume} (#{marketdata.exchange})
               th.hidden-xs #{settings.locale.mkt_top_bid}
               th.hidden-xs #{settings.locale.mkt_top_ask}
               th.hidden-xs #{settings.locale.mkt_last}
-              th #{settings.locale.mkt_change}
+              th.hidden-xs #{settings.locale.mkt_change}
           tbody
             tr
               td #{marketdata.data.summary.high}
               td #{marketdata.data.summary.low}
-              td #{marketdata.data.summary.volume}
-              td #{marketdata.data.summary.volume_btc}
               td.hidden-xs #{marketdata.data.summary.bid}
               td.hidden-xs #{marketdata.data.summary.ask}
               td.hidden-xs #{marketdata.data.summary.last}
-              - var altmarkets_change = (marketdata.data.summary.change);
-              if altmarkets_change >= 0
-                td.success +#{altmarkets_change} %
+              if marketdata.data.summary.change.substring(0, 1) == '-'
+                td.danger #{marketdata.data.summary.change}
               else
-                td.danger #{altmarkets_change} %
+                td.success #{marketdata.data.summary.change}
   .row
     .col-md-6.col-xs-12
       .panel.panel-default
@@ -48,12 +43,11 @@ block market_view
             each buy in marketdata.data.buys
               tr
                 td
-                  =buy.price
+                  =buy['price']
                 td
-                  =buy.amount
+                  =buy['amount']
                 td.hidden-xs
-                  =buy.total
-
+                  =buy['total']
     .col-md-6.col-xs-12
       .panel.panel-default
         .panel-heading
@@ -68,11 +62,11 @@ block market_view
             each sell in marketdata.data.sells
               tr
                 td
-                  =sell.price
+                  =sell['price']
                 td
-                  =sell.amount
+                  =sell['amount']
                 td.hidden-xs
-                  =sell.total
+                  =sell['total']
   .row   
     .col-md-12
       .panel.panel-default
@@ -88,29 +82,30 @@ block market_view
               th.hidden-xs #{settings.locale.mkt_time_stamp}
           tbody
             each order in marketdata.data.history
-              if order.side == 'up'
+              if order.type == 'Buy'
                 tr.success
                   td.hidden-xs
-                    =order.side
+                    =order.type
                   td
-                    =parseFloat(order.volume).toFixed(8)
+                    =order.amount
                   td
-                    =parseFloat(order.price).toFixed(8)
+                    =order.price
                   td
-                    =parseFloat(order.funds).toFixed(8)
+                    - var total = order.amount * order.price;
+                    =total.toFixed(8)
                   td.hidden-xs
-                    =(new Date(order.timestamp * 1000).toUTCString())
+                    =format_unixtime(order.date)       
               else
                 tr.danger 
                   td.hidden-xs
-                    =order.side
+                    =order.type
                   td
-                    =parseFloat(order.volume).toFixed(8)
+                    =order.amount
                   td
-                    =parseFloat(order.price).toFixed(8)
+                    =order.price
                   td
-                    =parseFloat(order.funds).toFixed(8)
+                    - var total = order.amount * order.price;
+                    =total.toFixed(8)
                   td.hidden-xs
-                    =(new Date(order.timestamp * 1000).toUTCString())
-
+                    =format_unixtime(order.date)
       .footer-padding

@@ -35,7 +35,7 @@ function route_get_block(res, blockhash) {
 }
 /* GET functions */
 
-  function route_get_tx(res, txid) {
+function route_get_tx(res, txid) {
   if (txid == settings.genesis_tx) {
     route_get_block(res, settings.genesis_block);
   } else {
@@ -87,6 +87,7 @@ function route_get_block(res, blockhash) {
     });
   }
 }
+
 function route_get_index(res, error) {
   db.is_locked(function(locked) {
     if (locked) {
@@ -102,7 +103,16 @@ function route_get_address(res, hash, count) {
     if (address) {
       var txs = [];
       res.render('address', { active: 'address', address: address, txs: txs});
+    } else {
+      route_get_index(res, hash + ' not found');
+    }
+  });
+}
 
+function route_get_claim_form(res, hash){
+  db.get_address(hash, function(address) {
+    if (address) {
+      res.render("claim_address", { active: "address", address: address});
     } else {
       route_get_index(res, hash + ' not found');
     }
@@ -209,6 +219,10 @@ router.get('/tx/:txid', function(req, res) {
 
 router.get('/block/:hash', function(req, res) {
   route_get_block(res, req.params.hash);
+});
+
+router.get('/address/:hash/claim', function(req,res){
+  route_get_claim_form(res, req.params.hash);
 });
 
 router.get('/address/:hash', function(req, res) {
