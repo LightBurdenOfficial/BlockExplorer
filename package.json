@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node --stack-size=10000 ./bin/cluster",
     "stop": "kill -2 $(cat tmp/cluster.pid)",
-    "test": "node ./node_modules/jasmine/bin/jasmine.js"
+    "test": "node ./node_modules/jasmine/bin/jasmine.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "^3.1.0",
@@ -24,9 +26,11 @@
     "pug": "^2.0.3",
     "qr-image": "~2.0.0",
     "request": "^2.88.0",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "snyk": "^1.272.0"
   },
   "devDependencies": {
     "jasmine": "^3.5.0"
-  }
+  },
+  "snyk": true
 }
