@@ -8,7 +8,7 @@ block content
     .panel.panel-default
       .panel-heading.hidden-xs
         strong #{settings.symbol} txid: #{tx.txid}
-        a(href='/api/getrawtransaction?txid='+tx.txid+'&decrypt=1')
+        a(href='/api/getrawtransaction?txid=#{tx.txid}&decrypt=1')
           span.glyphicon.glyphicon-info-sign.iquidus.pull-right
       table.table.table-bordered.table-striped.summary-table 
         thead
@@ -23,29 +23,29 @@ block content
             tr.success
                 td #{confirms}
                 td.hidden-xs 
-                  a(href='/block/'+tx.blockhash) #{tx.blockhash}
+                  a(href='/block/#{tx.blockhash}') #{tx.blockhash}
                 td #{time}
                 td.view_tx  
-                  a(href='/block/'+tx.blockhash)
+                  a(href='/block/#{tx.blockhash}')
                     span.glyphicon.glyphicon-eye-open 
           else
             if confirms < (confirmations / 2)
               tr.danger
                 td #{confirms}
                 td.hidden-xs  
-                  a(href='/block/'+tx.blockhash) #{tx.blockhash}
+                  a(href='/block/#{tx.blockhash}') #{tx.blockhash}
                 td #{time}
                 td.view_tx  
-                  a(href='/block/'+tx.blockhash)
+                  a(href='/block/#{tx.blockhash}')
                     span.glyphicon.glyphicon-eye-open 
             else
               tr.warning
                 td #{confirms}
                 td.hidden-xs  
-                  a(href='/block/'+tx.blockhash) #{tx.blockhash}
+                  a(href='/block/#{tx.blockhash}') #{tx.blockhash}
                 td #{time}
                 td.view_tx  
-                  a(href='/block/'+tx.blockhash)
+                  a(href='/block/#{tx.blockhash}')
                     span.glyphicon.glyphicon-eye-open
     if tx.vout.length < 1
       .alert.alert-info(role='alert', style='text-align:center;')   
@@ -71,17 +71,14 @@ block content
                       tr.info(style='text-align:center')
                         td #{settings.locale.new_coins}
                     else
-                      - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
-                      - var ramountParts = ramount.split('.')
+                      - var ramount = r.amount / 100000000
                       tr
                         td 
-                          a.loading(href='/address/'+r.addresses) 
+                          a.loading(href='/address/#{r.addresses}') 
                             =r.addresses
-                        td.danger.hidden-xs #{ramountParts[0]}.
-                          span.decimal #{ramountParts[1]}
+                        td.danger.hidden-xs #{ramount.toFixed(8)}
                       tr.hidden-lg.hidden-md
-                          td.danger #{ramountParts[0]}.
-                            span.decimal #{ramountParts[1]} #{settings.symbol}
+                          td.danger #{ramount.toFixed(8)} #{settings.symbol}
                 else
                   tr.info(style='text-align:center')
                     td #{settings.locale.proof_of_stake}
@@ -97,27 +94,20 @@ block content
               tbody
                 each r in tx.vout
                   if tx.vout.length > 0 
-                    - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
-                    - var ramountParts = ramount.split('.')
+                    - var ramount = r.amount / 100000000  
                     tr
                       td 
-                        a.loading(href='/address/'+r.addresses) 
+                        a.loading(href='/address/#{r.addresses}') 
                           =r.addresses 
-                      td.success.hidden-xs  #{ramountParts[0]}.
-                        span.decimal #{ramountParts[1]}
+                      td.success.hidden-xs  #{ramount.toFixed(8)}
                     tr.hidden-lg.hidden-md
-                      td.success #{ramountParts[0]}.
-                            span.decimal #{ramountParts[1]} #{settings.symbol}
+                      td.success #{ramount.toFixed(8)} #{settings.symbol}
                   else
-                    - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
-                    - var ramountParts = ramount.split('.')
                     tr
                       td 
-                        a.loading(href='/address/'+r.addresses) 
+                        a.loading(href='/address/#{r.addresses}') 
                           =r.addresses 
-                      td.success.hidden-xs  #{ramountParts[0]}.
-                        span.decimal #{ramountParts[1]}
+                      td.success.hidden-xs  #{ramount.toFixed(8)}
                     tr.hidden-lg.hidden-md
-                      td.success #{ramountParts[0]}.
-                            span.decimal #{ramountParts[1]} #{settings.symbol}
+                      td.success #{ramount.toFixed(8)} #{settings.symbol} 
     .footer-padding

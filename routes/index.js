@@ -1,10 +1,10 @@
 var express = require('express')
-    , router = express.Router()
-    , settings = require('../lib/settings')
-    , locale = require('../lib/locale')
-    , db = require('../lib/database')
-    , lib = require('../lib/explorer')
-    , qr = require('qr-image');
+  , router = express.Router()
+  , settings = require('../lib/settings')
+  , locale = require('../lib/locale')
+  , db = require('../lib/database')
+  , lib = require('../lib/explorer')
+  , qr = require('qr-image');
 
 function route_get_block(res, blockhash) {
   lib.get_block(blockhash, function (block) {
@@ -89,30 +89,32 @@ function route_get_tx(res, txid) {
 }
 
 function route_get_index(res, error) {
-  db.is_locked(function(locked) {
-    if (locked) {
-      res.render('index', { active: 'home', error: error, warning: locale.initial_index_alert});
-    } else {
-      res.render('index', { active: 'home', error: error, warning: null});
-    }
-  });
+  res.render('index', { active: 'home', error: error, warning: null});
 }
 
 function route_get_address(res, hash, count) {
   db.get_address(hash, function(address) {
     if (address) {
       var txs = [];
-      res.render('address', { active: 'address', address: address, txs: txs});
-    } else {
-      route_get_index(res, hash + ' not found');
-    }
-  });
-}
+      var hashes = address.txs.reverse();
+      if (address.txs.length < count) {
+        count = address.txs.length;
+      }
+      lib.syncLoop(count, function (loop) {
+        var i = loop.iteration();
+        db.get_tx(hashes[i].addresses, function(tx) {
+          if (tx) {
+            txs.push(tx);
+            loop.next();
+          } else {
+            loop.next();
+          }
+        });
+      }, function(){
 
-function route_get_claim_form(res, hash){
-  db.get_address(hash, function(address) {
-    if (address) {
-      res.render("claim_address", { active: "address", address: address});
+        res.render('address', { active: 'address', address: address, txs: txs});
+      });
+
     } else {
       route_get_index(res, hash + ' not found');
     }
@@ -204,7 +206,7 @@ router.get('/reward', function(req, res){
         } else if (a.count > b.count) {
           return 1;
         } else {
-          return 0;
+         return 0;
         }
       });
 
@@ -214,23 +216,19 @@ router.get('/reward', function(req, res){
 });
 
 router.get('/tx/:txid', function(req, res) {
-  route_get_tx(res, req.params.txid);
+  route_get_tx(res, req.param('txid'));
 });
 
 router.get('/block/:hash', function(req, res) {
-  route_get_block(res, req.params.hash);
-});
-
-router.get('/address/:hash/claim', function(req,res){
-  route_get_claim_form(res, req.params.hash);
+  route_get_block(res, req.param('hash'));
 });
 
 router.get('/address/:hash', function(req, res) {
-  route_get_address(res, req.params.hash, settings.txcount);
+  route_get_address(res, req.param('hash'), settings.txcount);
 });
 
 router.get('/address/:hash/:count', function(req, res) {
-  route_get_address(res, req.params.hash, req.params.count);
+  route_get_address(res, req.param('hash'), req.param('count'));
 });
 
 router.post('/search', function(req, res) {
@@ -271,8 +269,8 @@ router.post('/search', function(req, res) {
 });
 
 router.get('/qr/:string', function(req, res) {
-  if (req.params.string) {
-    var address = qr.image(req.params.string, {
+  if (req.param('string')) {
+    var address = qr.image(req.param('string'), {
       type: 'png',
       size: 4,
       margin: 1,
@@ -287,12 +285,12 @@ router.get('/ext/summary', function(req, res) {
   lib.get_difficulty(function(difficulty) {
     difficultyHybrid = ''
     if (difficulty['proof-of-work']) {
-      if (settings.index.difficulty == 'Hybrid') {
-        difficultyHybrid = 'POS: ' + difficulty['proof-of-stake'];
-        difficulty = 'POW: ' + difficulty['proof-of-work'];
-      } else if (settings.index.difficulty == 'POW') {
-        difficulty = difficulty['proof-of-work'];
-      } else {
+            if (settings.index.difficulty == 'Hybrid') {
+              difficultyHybrid = 'POS: ' + difficulty['proof-of-stake'];
+              difficulty = 'POW: ' + difficulty['proof-of-work'];
+            } else if (settings.index.difficulty == 'POW') {
+              difficulty = difficulty['proof-of-work'];
+            } else {
         difficulty = difficulty['proof-of-stake'];
       }
     }

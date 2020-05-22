@@ -2,7 +2,6 @@ extends layout
 
 block content
   - var time = format_unixtime(block.time)
-  - var block_difficulty = parseFloat(block.difficulty).toFixed(4)
   .col-xs-12.col-md-10.col-md-offset-1
     .well.well-sm.hidden-lg.hidden-md(style='word-wrap:break-word;')
       | #{block.hash}
@@ -10,15 +9,15 @@ block content
       .panel-heading(style='padding-left:25px;padding-right:25px;')       
         .row           
           if block.previousblockhash != null
-            a(href='/block/'+block.previousblockhash)
-              span.glyphicon.glyphicon-chevron-left.iquidus.block-last(data-toggle='tooltip', data-placement='top', title=settings.locale.block_previous)  
+            a(href='/block/#{block.previousblockhash}')
+              span.glyphicon.glyphicon-chevron-left.iquidus.block-last(data-toggle='tooltip', data-placement='top', title='#{settings.locale.block_previous}')  
             strong.hidden-xs #{settings.symbol} block: #{block.hash}
           else
             strong.hidden-xs(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}: #{block.hash}
           if block.nextblockhash != null 
-            a(href='/block/'+block.nextblockhash)
-              span.glyphicon.glyphicon-chevron-right.iquidus.pull-right.block-next(data-toggle='tooltip', data-placement='top', title=settings.locale.block_next)       
-          a(href='/api/getblock?hash='+block.hash)
+            a(href='/block/#{block.nextblockhash}')
+              span.glyphicon.glyphicon-chevron-right.iquidus.pull-right.block-next(data-toggle='tooltip', data-placement='top', title='#{settings.locale.block_next}')       
+          a(href='/api/getblock?hash=#{block.hash}')
             span.glyphicon.glyphicon-info-sign.iquidus.pull-right
       table.table.table-bordered.summary-table 
         thead
@@ -35,26 +34,26 @@ block content
         tbody
           if block.confirmations >= confirmations                
             tr.success
-              - var block_size = (block.size/1024).toFixed(2)
+              - var block_size = block.size/1024
               td #{block.height}
-              td #{block_difficulty}
+              td #{block.difficulty.toFixed(4)}
               td #{block.confirmations}
               if settings.heavy == true
                 td  #{block.vote}
-              td.hidden-xs #{block_size}
+              td.hidden-xs #{block_size.toFixed(2)}
               td.hidden-xs #{block.bits}
               td.hidden-xs #{block.nonce}
               td.hidden-xs #{time}
           else
             if block.confirmations < (confirmations / 2)
               tr.danger
-                - var block_size = (block.size/1024).toFixed(2)
+                - var block_size = block.size/1024
                 td #{block.height}
-                td #{block_difficulty}
+                td #{block.difficulty.toFixed(4)}
                 td #{block.confirmations}
                 if settings.heavy == true
                   td  #{block.vote}
-                td.hidden-xs #{block_size}
+                td.hidden-xs #{block_size.toFixed(2)}
                 td.hidden-xs #{block.bits}
                 td.hidden-xs #{block.nonce}
                 td.hidden-xs #{time}
@@ -62,11 +61,11 @@ block content
               tr.warning
                 - var block_size = block.size/1024
                 td #{block.height}
-                td #{block_difficulty}
+                td #{block.difficulty.toFixed(4)}
                 td #{block.confirmations}
                 if settings.heavy == true
                   td  #{block.vote}
-                td.hidden-xs #{block_size}
+                td.hidden-xs #{block_size.toFixed(2)}
                 td.hidden-xs #{block.bits}
                 td.hidden-xs #{block.nonce}
                 td.hidden-xs #{time}
@@ -89,19 +88,14 @@ block content
             each txn in txs
               tr
                 td.hidden-xs
-                  a(href='/tx/'+txn.txid) #{txn.txid}
+                  a(href='/tx/#{txn.txid}') #{txn.txid}
                 td #{txn.vout.length}
                 if txn.vout.length > 0
-                  - var total = (txn.total / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true});
-                  - var totalParts = total.split('.')
-                  td #{totalParts[0]}.
-                    span.decimal #{totalParts[1]}
+                  - var total = txn.total / 100000000
+                  td #{total.toFixed(8)}
                 else
-                  - var total = (txn.total).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true});
-                  - var totalParts = total.split('.')
-                  td #{totalParts[0]}.
-                    span.decimal #{totalParts[1]}
+                  td #{txn.total.toFixed(8)}
                 td.view_tx 
-                  a(href='/tx/'+txn.txid)
+                  a(href='/tx/#{txn.txid}')
                     span.glyphicon.glyphicon-eye-open 
     .footer-padding  
