@@ -96,7 +96,8 @@ tr {
 	margin-left:5px;
 }
 
-#twitter-icon {
+#twitter-icon,
+#bitcointalk-icon {
 	font-size: 20px;
 }
 .connections {
@@ -109,7 +110,8 @@ tr {
 	margin-right: 10px;
 }
 
-#twitter-icon img{
+#twitter-icon img,
+#bitcointalk-icon img{
 	width: 40px;
 	margin: 5px 5px;
 }

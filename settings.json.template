@@ -7,36 +7,36 @@
   // name your instance!
   "title": "SPEROCOIN Explorer",
 
-  "address": "127.0.0.1:3001",
+  "address": "localhost:3001",
 
   // coin name
-  "coin": "SperoCoin",
+  "coin": "Sperocoin",
 
   // coin symbol
   "symbol": "SPERO",
 
   // logo
-  "logo": "https://raw.githubusercontent.com/DigitalCoin1/imagens/master/logo/sperocoin_2.png",
+  "logo": "/images/logo.png",
 
   // favicon
-  "favicon": "https://sperocoin.org/favicon.png",
+  "favicon": "public/favicon.ico",
 
   // Uses bootswatch themes (http://bootswatch.com/)
   // Valid options:
   //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
   //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
   // theme (see /public/themes for available themes)
-  "theme": "United",
+  "theme": "Journal",
 
   // port to listen for requests on.
   "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "xxxxx",
-    "password": "xxxxx",
-    "database": "xxxxx",
-    "address": "xxxxx",
+    "user": "xxxxxx",
+    "password": "xxxxxx",
+    "database": "xxxxxx",
+    "address": "localhost",
     "port": 27017
   },
 
@@ -66,6 +66,7 @@
     "twitter": true,
     "facebook": false,
     "googleplus": false,
+    "bitcointalk": true,
     "search": true,
     "movement": true,
     "network": true
@@ -75,27 +76,27 @@
   "index": {
     "show_hashrate": true,
     "difficulty": "Hybrid",
-    "last_txs": 100
+    "last_txs": 1000
   },
 
   // ensure links on API page are valid
   "api": {
-    "blockindex": 161277,
-    "blockhash": "bf610c30ca0f5e3f1bf8411fd618dbaa3ba9d2e1ca7f1bfce7fc0a56a20259ee",
-    "txhash": "9c1cc4884f261f2be7ccd35106dd772f0db89d3801d1e3307bc9c37d278c08cc",
-    "address": "SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz"
+    "blockindex": 46090,
+    "blockhash": "ff1e490afbda3ab7c3431b67c9a6b6e335a43dbbb32cd5c2bee345234a8cfdef",
+    "txhash": "791c76366603028c5b1397f4b5e3207479bcff1896ec7ec48747bb1b10cb9e1f",
+    "address": "SZVK5rTeciLQof8Jb3hSmp4DSWNCcaDEv8"
   },
 
   // market settings
   //supported markets: bittrex, poloniex, yobit, empoex, bleutrade, cryptopia, ccex
   //default market is loaded by default and determines last price in header
   "markets": {
-    "coin": "JBS",
+    "coin": "SPERO",
     "exchange": "BTC",
-    "enabled": ["bittrex"],
+    "enabled": ["spero"],
     "cryptopia_id": "1658",
     "ccex_key" : "Get-Your-Own-Key",
-    "default": "bittrex"
+    "default": "spero"
   },
 
   // richlist/top100 settings
@@ -104,7 +105,6 @@
     "received": true,
     "balance": true
   },
-
   // movement page settings
   // min amount: show transactions greater than this value
   // low flag: greater than this value flagged yellow
@@ -119,24 +119,27 @@
 // Peers page settings
   // ipstack_api_key: ipstack.com Geo IP. This is the replacement of http://freegeoip.net You need an API Key for the Requests
   "peers": {
-    "ipstack_api_key": "Your API Key"
+    "ipstack_api_key": "5104bb617eaa0d0cde847d69845e9cb1"
   },
 //Adição do Localizador por IP da IPSTAC
 
   // twitter, facebook, googleplus
   "twitter": "Spero_Official",
-  "facebook": "sperocoinofficial",
+  "facebook": "yourfacebookpage",
   "googleplus": "yourgooglepluspage",
+  "bitcointalk": "2260985.0",
+
+
 
   //genesis
-  "genesis_tx": "6f5dd836da72471e5ea8f3c836249e447059f9f7c7c26a2f91fecd0c509dd677",
+  "genesis_tx": "6f5dd836da72471e5ea8f3c836249e447059f9f7c7c26a2f91fecd0c509dd677 ",
   "genesis_block": "000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b",
 
   //heavy (enable/disable additional heavy features)
   "heavy": false,
 
   //amount of txs to index per address (stores latest n txs)
-  "txcount": 50,
+  "txcount": 1000,
 
   //show total sent & received on address page (set false if PoS)
   "show_sent_received": true,
@@ -164,6 +167,8 @@
   // type (optional) = class of label, valid types: default, primary, warning, danger, success
   // url (optional) = url to link to for more information
   "labels": {
+  //  "ScGar9ANzZbfyVEJaBDKoEdMYg1HELfrbt": {"label": "Developers address", "type":"primary", "url":"http://example.com"},
+  //  "SYjL5Hix9PzttDmasKYefzptypifuvkfDL": {"label": "Sperocoin Projects Donate"}
     "SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz": {"label": "Foundation Team", "type":"success", "url":"https://sperocoin.org"},
     "SX2czsni9LUY8574eXQhsQnnz46ZU8r4sf": {"label": "Vendas", "type":"success", "url":"https://sperocoin.org"},
     "SUxm2pYeN5jGa7dkBZK8UQyJia4DAEUgUU": {"label": "Posto de Distribuicao 01", "type":"success", "url":"https://sperocoin.org"},
@@ -186,6 +191,5 @@
     "Sf4tb62qSrm8oykzCFwMWQTWEAYyhuVcZZ": {"label": "Foundation: Sandro", "type":"info"},
     "SeNu516XDPtSjJ9B6Kz8YqXpzF2gkpxmDJ": {"label": "Foundation: Leonardo Pereira", "type":"info"},
     "Sb9DhHfB8Dzan3sGSGvHfaKssKreVXt3XH": {"label": "Parceiro: MD Invest", "type":"warning", "url":"https://sperocoin.nl/pt/index"}
-//  "JSWVXHWeYNknPdG9uDrcBoZHztKMFCsndw": {"label": "Cryptsy"}
   }
 }

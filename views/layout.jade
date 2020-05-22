@@ -203,6 +203,11 @@ html
             li.pull-left
               a#facebook-icon(href="https://www.facebook.com/#{settings.facebook}", target='_blank')
                 span.glyphicon.fa.fa-facebook
+        if settings.display.bitcointalk
+          ul.nav.navbar-nav
+            li.pull-left
+              a#bitcointalk-icon(href="https://bitcointalk.org/index.php?topic=#{settings.bitcointalk}", target='_blank')
+                span.glyphicon.fa.fa-bitcoin
         if settings.display.googleplus
           ul.nav.navbar-nav
             li.pull-left
