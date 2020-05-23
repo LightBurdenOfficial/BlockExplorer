@@ -33,9 +33,9 @@
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "xxxxxx",
-    "password": "xxxxxx",
-    "database": "xxxxxx",
+    "user": "xxxxxxxx",
+    "password": "xxxxxxxx",
+    "database": "xxxxxxxx",
     "address": "localhost",
     "port": 27017
   },
@@ -48,8 +48,8 @@
   "wallet": {
     "host": "localhost",
     "port": 55681,
-    "user": "SPERO_RPC_USER",
-    "pass": "SPERO_RPC_PASS"
+    "user": "WALLETRPC_USER",
+    "pass": "WALLETRPC_PASS"
   },
 
   // confirmations
@@ -63,10 +63,12 @@
     "api": true,
     "markets": true,
     "richlist": true,
-    "twitter": true,
+    "twitter": false,
     "facebook": false,
+    "youtube": false,
+    "exchange": false,
     "googleplus": false,
-    "bitcointalk": true,
+    "bitcointalk": false,
     "search": true,
     "movement": true,
     "network": true
@@ -128,8 +130,8 @@
   "facebook": "yourfacebookpage",
   "googleplus": "yourgooglepluspage",
   "bitcointalk": "2260985.0",
-
-
+  "youtube": "UCQQjsoCjR_THbZ4AmalzPPg",
+  "exchange": "https://exchange.sperocoin.org/markets/sperobtc",
 
   //genesis
   "genesis_tx": "6f5dd836da72471e5ea8f3c836249e447059f9f7c7c26a2f91fecd0c509dd677 ",

@@ -208,6 +208,16 @@ html
             li.pull-left
               a#bitcointalk-icon(href="https://bitcointalk.org/index.php?topic=#{settings.bitcointalk}", target='_blank')
                 span.glyphicon.fa.fa-bitcoin
+        if settings.display.youtube
+          ul.nav.navbar-nav
+            li.pull-left
+              a#youtube-icon(href="https://www.youtube.com/channel/"+settings.youtube, target='_blank')
+                span.glyphicon.fa.fa-youtube
+        if settings.display.exchange
+          ul.nav.navbar-nav
+            li.pull-left
+              a#exchange-icon(href=settings.exchange, target='_blank')
+                span.glyphicon.fa.fa-shopping-cart
         if settings.display.googleplus
           ul.nav.navbar-nav
             li.pull-left
