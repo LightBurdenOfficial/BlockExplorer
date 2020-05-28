@@ -1,6 +1,6 @@
 # BlockExplorer used by SperoCoin
 
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.6.2
 ================
 
 An open source block explorer written in node.js.
