@@ -4,3 +4,4 @@ logs
 settings.json
 node_modules/
 tmp/cluster.pid
+nodesource_setup.sh
