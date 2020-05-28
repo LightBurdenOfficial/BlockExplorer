@@ -1,4 +1,6 @@
 # Logs
 logs
 *.log
-
+settings.json
+node_modules/
+tmp/cluster.pid
