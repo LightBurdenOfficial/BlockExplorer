@@ -39,9 +39,7 @@ mongoose.connect(dbString, function(err) {
             // peer already exists
             loop.next();
           } else {
-            //Adição do Localizador por IP da IPSTACK
-              request({uri: 'http://api.ipstack.com/' + address +'?access_key=' + settings.peers.ipstack_api_key, json: true}, function (error, response, geo) {
-            //Adição do Localizador por IP da IPSTACK
+            request({uri: 'https://freegeoip.app/json/' + address, json: true}, function (error, response, geo) {
               db.create_peer({
                 address: address,
                 port: port,
