@@ -168,6 +168,7 @@ is_locked(function (exists) {
                                   db.get_stats(settings.coin, function(nstats){
                                     console.log('reindex complete (block: %s)', nstats.last);
                                     exit();
+                                  });
                                 });
                               });
                             });
