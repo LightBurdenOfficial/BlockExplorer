@@ -17,14 +17,14 @@ html
     script(src='/vendor/jqplot/plugins/jqplot.barRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.categoryAxisRenderer.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js')
-    script(src='//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js')  
+    script(src='//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js')
     script(src='//cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.js')
     script(src='//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js')
     script(src='/javascripts/chart.js')
     script.
       $(document).ready(function(){
         $('##{active}').addClass('active');
-        function update_stats(){   
+        function update_stats(){
           $.ajax({url: '/ext/summary', success: function(json){
             $("#supply").text(parseInt(parseFloat(json.data[0].supply).toFixed(0)).toLocaleString('en'));
             $("#difficulty").text(parseFloat(json.data[0].difficulty).toFixed(2));
@@ -39,15 +39,15 @@ html
         }
         $('.block-last-next').tooltip({
           animation: true,
-          delay: { hide: 500 },   
+          delay: { hide: 500 },
         });
-        $('.history-table').dataTable( {        
+        $('.history-table').dataTable( {
           searching: false,
           ordering: false,
           responsive: true
         });
         $('.iquidus').css('color',$('.table').css('color'));
-        $(window).resize(function () { 
+        $(window).resize(function () {
           $($.fn.dataTable.tables( true ) ).DataTable().columns.adjust();
         });
         setInterval( function() {
@@ -57,7 +57,7 @@ html
       });
   body
     - function format_unixtime(unixtime) {
-      - var a = new Date(unixtime*1000);  
+      - var a = new Date(unixtime*1000);
       - var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
       - var year = a.getFullYear();
       - var month = months[a.getMonth()];
@@ -78,7 +78,7 @@ html
         - min = '0' + min
       if sec < 10
         - sec = '0' + sec
-      - var time = date + suffix + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;   
+      - var time = date + suffix + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
       - return time
     -  };
     .nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
@@ -93,7 +93,7 @@ html
         .collapse.navbar-collapse(id='navbar-collapse')
           ul.nav.navbar-nav
             li#home
-              a.navbar-link(href='/') 
+              a.navbar-link(href='/')
                 span.glyphicon.glyphicon-search
                 span.menu-text #{settings.locale.menu_explorer}
             if settings.heavy == true
@@ -102,8 +102,8 @@ html
                   span.fa.fa-star
                   span.menu-text #{settings.locale.menu_reward}
             if settings.display.movement == true
-              li#movement 
-                a.navbar-link.loading(href='/movement') 
+              li#movement
+                a.navbar-link.loading(href='/movement')
                   span.fa.fa-money
                   span.menu-text #{settings.locale.menu_movement}
             if settings.display.network == true
@@ -196,9 +196,9 @@ html
                 strong Market Cap
               .panel-body
                 label#marketCap -
-                 
+
       .row.text-center(style='margin-top:10px;margin-bottom:20px;')
-        form.form-inline(method='post', action='/search')      
+        form.form-inline(method='post', action='/search')
           #index-search.form-group
             input.form-control(type='text', name='search', placeholder=settings.locale.ex_search_message, style='min-width:80%;margin-right:5px;')
             button.btn.btn-success(type='submit') #{settings.locale.ex_search_button}
@@ -215,34 +215,21 @@ html
             li.pull-left
               a#facebook-icon(href="https://www.facebook.com/"+settings.facebook, target='_blank')
                 span.glyphicon.fa.fa-facebook
-        if settings.display.bitcointalk
-          ul.nav.navbar-nav
-            li.pull-left
-              a#bitcointalk-icon(href="https://bitcointalk.org/index.php?topic="+settings.bitcointalk, target='_blank')
-                span.glyphicon.fa.fa-bitcoin
-        if settings.display.youtube
-          ul.nav.navbar-nav
-            li.pull-left
-              a#youtube-icon(href="https://www.youtube.com/channel/"+settings.youtube, target='_blank')
-                span.glyphicon.fa.fa-youtube
-        if settings.display.exchange
-          ul.nav.navbar-nav
-            li.pull-left
-              a#exchange-icon(href=settings.exchange, target='_blank')
-                span.glyphicon.fa.fa-shopping-cart
         if settings.display.googleplus
           ul.nav.navbar-nav
             li.pull-left
               a#googleplus-icon(href="https://plus.google.com/"+settings.googleplus, target='_blank')
                 span.glyphicon.fa.fa-google-plus
+        if settings.display.youtube
+          ul.nav.navbar-nav
+            li.pull-left
+              a#youtube-icon(href="https://www.youtube.com/channel/"+settings.youtube, target='_blank')
+                span.glyphicon.fa.fa-youtube
       .col-md-4
         ul.nav
           li.text-center(style='margin-left:80px;margin-right:80px;')
-            p(style='margin-top:15px;') 
-              a.navbar-link(href='https://github.com/DigitalCoin1/BlockExplorer', target='_blank') SperoCoin Developers  v#{settings.iquidus_version}
+            p(style='margin-top:15px;')
+              a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer v#{settings.iquidus_version}
       span.connections
         label#lblBlockcount.label.label-default -
         label#lblConnections.label.label-default -
-
-
-              

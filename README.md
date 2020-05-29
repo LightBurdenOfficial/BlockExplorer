@@ -1,22 +1,21 @@
-# BlockExplorer used by SperoCoin
-
 Iquidus Explorer - 1.7.3
-
 ================
 
 An open source block explorer written in node.js.
 
 ### See it in action
 
-*  [Jumbucks](http://explorer.getjumbucks.com)
-*  [Sphere](http://sphere.iquidus.io)
-*  [SAR](http://explorer.sarcoin.info)
-*  [Vanillacoin](https://blockchain.vanillacoin.net/)
-*  [Neoscoin](http://explorer.infernopool.com/)  
-*  [C2Chain](http://c2chain.info/)
-*  [SperoCoin](https://explorer.sperocoin.org/)
+*  [Deutsche eMark](http://b.emark.tk/)
+*  [Vertcoin](http://explorer.vertcoin.info/)
+*  [TheHolyRogerCoin (ROGER) Explorer](https://explorer.theholyroger.com/)
+*  [CPUChain (CPU) Explorer](https://explorer.cpuchain.org/)
+*  [Omega Blockchain Explorer](http://explorer.omegablockchain.net/)
+*  [Sugarchain Explorer](https://1explorer.sugarchain.org/)
+*  [Florincoin](https://florincoin.info/info)
+*  [Maxcoin Explorer 1](https://explorer.maxcoinproject.net/)
 
-*note: If you would like your instance mentioned here contact me*
+
+*Note: If you would like your instance mentioned here contact me*
 
 ### Requires
 
@@ -60,7 +59,7 @@ Create user with read/write access:
 
     npm start
 
-*note: mongod must be running to start the explorer*
+*Note: mongod must be running to start the explorer*
 
 As of version 1.4.0 the explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
 
@@ -104,14 +103,13 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 ### Wallet
 
-Iquidus Explorer is intended to be generic so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
+Iquidus Explorer is intended to be generic, so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
 
     -daemon -txindex
+    
+### Security
 
-### Donate
-
-    BTC: 168hdKA3fkccPtkxnX8hBrsxNubvk4udJi
-    JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D
+Ensure mongodb is not exposed to the outside world via your mongo config or a firewall to prevent outside tampering of the indexed chain data. 
 
 ### Known Issues
 
@@ -170,4 +168,3 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-

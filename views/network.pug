@@ -1,6 +1,6 @@
 extends layout
 
-block content
+block content   
   .col-md-12(style="margin-bottom: 4%")
     .row.text-center(style='margin-bottom:15px;')
       i #{settings.locale.net_warning}
@@ -11,7 +11,7 @@ block content
         li(role='presentation')
           a(href='#addnodes', aria-controls='addnodes', role='tab', data-toggle='tab') #{settings.locale.net_addnodes}
     .tab-content
-      #connections.tabpanel.tab-pane.active
+      #connections.tabpanel.tab-pane.active 
         include ./includes/net_list.pug
       #addnodes.tabpanel.tab-pane
         include ./includes/net_addnodes.pug

@@ -96,8 +96,7 @@ tr {
 	margin-left:5px;
 }
 
-#twitter-icon,
-#bitcointalk-icon {
+#twitter-icon {
 	font-size: 20px;
 }
 .connections {
@@ -110,8 +109,7 @@ tr {
 	margin-right: 10px;
 }
 
-#twitter-icon img,
-#bitcointalk-icon img{
+#twitter-icon img{
 	width: 40px;
 	margin: 5px 5px;
 }
@@ -154,7 +152,6 @@ tr {
 	    width: 150px !important;
     }
 }
-
 .table>tbody>tr>td.addr-summary {
 	line-height: 7.7;
 	font-size: 1.3em;
@@ -174,6 +171,8 @@ tr {
 	bottom: 0px;
 }
 
+
 .decimal {
-	font-size: 0.8em;
+	font-size: 0.7em;
 }
+

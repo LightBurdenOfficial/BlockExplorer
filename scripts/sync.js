@@ -147,7 +147,7 @@ is_locked(function (exists) {
                   });
                 }
                 if (mode == 'reindex') {
-                  Tx.deleteMany({}, function(err) {
+                  Tx.deleteMany({}, function(err) { 
                     console.log('TXs cleared.');
                     Address.deleteMany({}, function(err2) { 
                       console.log('Addresses cleared.');
