@@ -135,6 +135,10 @@
     "cryptsy": "Cryptsy",
     "cryptopia": "Cryptopia",
     "ccex": "C-Cex",
+    "altmarkets": "AltMarkets",
+    "crex": "Crex24",
+    "tradesatoshi": "TradeSatoshi",
+    "spero": "SPERO Exchange",
 
     // Heavy rewards view
     "heavy_title": "Reward/voting information",

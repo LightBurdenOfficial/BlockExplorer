@@ -16,7 +16,7 @@ An open source block explorer written in node.js.
 *  [C2Chain](http://c2chain.info/)
 *  [SperoCoin](https://explorer.sperocoin.org/)
 
-*note: If you would like your instance mentioned here contact me*
+*Note: If you would like your instance mentioned here contact me*
 
 ### Requires
 
@@ -60,7 +60,7 @@ Create user with read/write access:
 
     npm start
 
-*note: mongod must be running to start the explorer*
+*Note: mongod must be running to start the explorer*
 
 As of version 1.4.0 the explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
 
@@ -104,9 +104,14 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 ### Wallet
 
-Iquidus Explorer is intended to be generic so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
+Iquidus Explorer is intended to be generic, so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
 
     -daemon -txindex
+
+### Security
+
+Ensure mongodb is not exposed to the outside world via your mongo config or a firewall to prevent outside tampering of the indexed chain data. 
+
 
 ### Donate
 
