@@ -1,6 +1,6 @@
 # BlockExplorer used by SperoCoin
 
-Iquidus Explorer - 1.7.2
+Iquidus Explorer - 1.7.3
 
 ================
 
@@ -114,14 +114,6 @@ Iquidus Explorer is intended to be generic so it can be used with any wallet fol
     JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D
 
 ### Known Issues
-
-**Address balance history is out of order.**
-
-1.7.2 brings parallel block indexing (super fast) - but the new addition of Historical Address Balance is currently indexed out of order. Will fix it soon.
-
-Only workaround at the moment is limit parallel block tasks to 1 (disable it)
-
-https://github.com/iquidus/explorer/issues/330
 
 **script is already running.**
 
