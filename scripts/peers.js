@@ -30,9 +30,9 @@ mongoose.connect(dbString, function(err) {
         var port = body[i].addr.split(':')[1];
         db.find_peer(address, function(peer) {
           if (peer) {
-            if (isNaN(peer['port']) || peer['port'].length < 2) {
+            if (isNaN(peer['port']) || peer['port'].length < 2 || peer['country'].length < 1) {
               db.drop_peers(function() {
-                console.log('Saved peers missing ports, dropping peers. Re-reun this script afterwards.');
+                console.log('Saved peers missing ports or country, dropping peers. Re-reun this script afterwards.');
                 exit();
               });
             }
