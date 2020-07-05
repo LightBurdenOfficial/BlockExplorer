@@ -154,10 +154,18 @@ tr {
 	    width: 150px !important;
     }
 }
+
+.table>tbody>tr>td.addr-summary {
+	line-height: 7.7;
+	font-size: 1.3em;
+	font-weight: 800;
+	text-align: center;
+}
+
 .qrcode {
-	position: absolute;
+	/*position: absolute;
 	top: 65px;
-	right: 15px;
+	right: 15px;*/
 }
 
 .footer-logo {
@@ -166,3 +174,6 @@ tr {
 	bottom: 0px;
 }
 
+.decimal {
+	font-size: 0.8em;
+}

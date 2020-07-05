@@ -1,6 +1,6 @@
 # BlockExplorer used by SperoCoin
 
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.6.2
 ================
 
 An open source block explorer written in node.js.
@@ -19,7 +19,7 @@ An open source block explorer written in node.js.
 
 ### Requires
 
-*  node.js >= 0.10.28
+*  node.js >= 0.10.28 (8.17.0 is advised for updated dependencies)
 *  mongodb 2.6.x
 *  *coind
 
@@ -116,9 +116,10 @@ Iquidus Explorer is intended to be generic so it can be used with any wallet fol
 
 **script is already running.**
 
-If you receive this message when launching the sync script either a) a sync is currently in progress, or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid from the tmp folder in the explorer root directory.
+If you receive this message when launching the sync script either a) a sync is currently in progress, or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid and db_index.pid from the tmp folder in the explorer root directory.
 
     rm tmp/index.pid
+    rm tmp/db_index.pid
 
 **exceeding stack size**
 

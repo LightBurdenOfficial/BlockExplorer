@@ -1,4 +1,11 @@
 # Logs
 logs
 *.log
+settings.json
+node_modules/
+tmp/cluster.pid
+nodesource_setup.sh
 
+.DS_Store
+
+package-lock.json

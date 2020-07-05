@@ -45,6 +45,8 @@
   "check_timeout": 250,
 
   // wallet settings
+  "use_rpc": false,
+
   "wallet": {
     "host": "localhost",
     "port": 55681,
@@ -78,7 +80,8 @@
   "index": {
     "show_hashrate": true,
     "difficulty": "Hybrid",
-    "last_txs": 1000
+    "last_txs": 1000,
+    "txs_per_page": 10
   },
 
   // ensure links on API page are valid
@@ -117,14 +120,6 @@
     "high_flag": 10000
   },
 
-//Compatibilidade com QT5 - Francis Santana - Versão 2.6.4.5
-// Peers page settings
-  // ipstack_api_key: ipstack.com Geo IP. This is the replacement of http://freegeoip.net You need an API Key for the Requests
-  "peers": {
-    "ipstack_api_key": "5104bb617eaa0d0cde847d69845e9cb1"
-  },
-//Adição do Localizador por IP da IPSTAC
-
   // twitter, facebook, googleplus
   "twitter": "Spero_Official",
   "facebook": "yourfacebookpage",
@@ -140,8 +135,12 @@
   //heavy (enable/disable additional heavy features)
   "heavy": false,
 
+  //disable saving blocks & TXs via API during indexing.
+  "lock_during_index": false,
+
   //amount of txs to index per address (stores latest n txs)
   "txcount": 1000,
+  "txcount_per_page": 50,
 
   //show total sent & received on address page (set false if PoS)
   "show_sent_received": true,
