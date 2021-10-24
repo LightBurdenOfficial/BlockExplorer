@@ -51,8 +51,8 @@
   "wallet": {
     "host": "localhost",
     "port": 55681,
-    "username": "WALLETRPC_USER",
-    "password": "WALLETRPC_PASS"
+    "user": "WALLETRPC_USER",
+    "pass": "WALLETRPC_PASS"
   },
 
   // confirmations
